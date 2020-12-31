@@ -15,8 +15,8 @@ public class Main {
         }
 
 //        findCornerElements(array2d); // TASK 1
-//        showElementsLineColumn(array2d); // TASK 2
-        findMaxSumLine(array2d); // TASK 3
+//        showElementsRowColumn(array2d); // TASK 2
+        findMaxSumRow(array2d); // TASK 3
     }
 
     /**
@@ -47,12 +47,12 @@ public class Main {
 
     /**
      * TASK 2
-     * Display all elements of the 5th line and the 2nd column of the array.
+     * Display all elements of the 5th row and the 2nd column of the array.
      * @param array2d 2d random array
      */
 
 
-    private static void showElementsLineColumn(int[][] array2d) {
+    private static void showElementsRowColumn(int[][] array2d) {
 
         for (int i = 0; i < array2d.length; i++, System.out.println()) {
             for (int j = 0; j < array2d[i].length; j++) {
@@ -62,7 +62,7 @@ public class Main {
 
         }
 
-        System.out.println("\nAll elements of the 5th line\n");
+        System.out.println("\nAll elements of the 5th row\n");
 
         for (int i = 4; i < array2d.length; i++) {
             for (int j = 0; j < array2d[i].length; j++) {
@@ -83,11 +83,37 @@ public class Main {
 
     /**
      * TASK 3
-     * Display the line with maximum sum of elements.
+     * Display the row with maximum sum of elements.
      * @param array2d 2d random array
      */
 
-    private static void findMaxSumLine(int[][] array2d) {
+    private static void findMaxSumRow(int[][] array2d) {
+
+        for (int i = 0; i < array2d.length; i++, System.out.println()) {
+            for (int j = 0; j < array2d[i].length; j++) {
+                System.out.print(" " + array2d[i][j] + " ");
+
+            }
+        }
+
+        System.out.println(" ");
+
+        int sum;
+        int temp = 0;
+        for(int i = 0; i < array2d.length; i++){
+            sum = 0;
+            for(int j = 0; j < array2d[i].length; j++){
+                sum = sum + array2d[i][j];
+            }
+            System.out.println("Sum of " + (i+1) +" row: " + sum);
+
+            if (sum>temp){
+                temp = sum;
+            }
+        }
+
+        System.out.println("\nSum of the maximum row " + temp);
+
     }
 
 
