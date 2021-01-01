@@ -1,5 +1,7 @@
 package com.kate;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,10 +14,12 @@ public class Main {
             }
         }
 
-        findCornerElements(array2d); // TASK 1
+//        findCornerElements(array2d); // TASK 1
 //        showElementsRowColumn(array2d); // TASK 2
 //        findMaxSumRow(array2d); // TASK 3
 //        fillRandomAndSum(); // TASK4
+        fillRandNumTo10(); // TASK5
+
     }
 
 
@@ -140,7 +144,74 @@ public class Main {
         System.out.println("\nSum of the matrix elements " + sum);
     }
 
+    /**
+     * TASK 5
+     * Fill array random unique elements
+     */
+
+    private static void fillRandNumTo10() {
+
+        int row = 4;
+        int col = 7;
+
+        int[][] aRandTo10 = new int[row][col];
+        int[] copyArray = new int[row * col];
+        int[] newArray = new int[copyArray.length];
+
+
+        // fill 1d array
+
+        for (int i = 0; i < copyArray.length; i++) {
+            int rand = (int) (Math.random() * 10);
+            copyArray[i] = rand;
+
+        }
+
+        //remove repeat elements
+        //find 2 repeat elements and copy to new array
+
+        for (int i = 1; i < copyArray.length; i++) {
+
+            if (copyArray[i] == 0) {
+                copyArray[i] = 1;
+            }
+            if (copyArray[i] == copyArray[i - 1]) {
+                newArray[i] = copyArray[i];
+            }
+        }
+
+        //merge arrays, remove zeros
+
+        for (int i = 0; i < copyArray.length; i++) {
+            copyArray[i] = copyArray[i] - newArray[i];
+
+        }
+
+        //if 3 repeat elements
+
+        for (int i = 1; i < copyArray.length; i++) {
+
+            if (copyArray[i] == copyArray[i - 1]) {
+                copyArray[i - 1] = copyArray[i] + 2;
+            }
+        }
+
+        // add 1d array to 2d array
+
+        for (int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                aRandTo10[j][i] = copyArray[i + col * j];
+            }
+        }
+
+        for (int i = 0; i < aRandTo10.length; i++, System.out.println()) {
+            for (int j = 0; j < aRandTo10[i].length; j++) {
+                System.out.print(" " + aRandTo10[i][j] + " ");
+            }
+        }
+    }
 }
+
 
 
 
