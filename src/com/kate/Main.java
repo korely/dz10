@@ -14,11 +14,11 @@ public class Main {
             }
         }
 
-//        findCornerElements(array2d); // TASK 1
+        findCornerElements(array2d); // TASK 1
 //        showElementsRowColumn(array2d); // TASK 2
 //        findMaxSumRow(array2d); // TASK 3
 //        fillRandomAndSum(); // TASK4
-        fillRandNumTo10(); // TASK5
+//        fillRandNumTo10(); // TASK5
 
     }
 
@@ -158,13 +158,11 @@ public class Main {
         int[] copyArray = new int[row * col];
         int[] newArray = new int[copyArray.length];
 
-
         // fill 1d array
 
         for (int i = 0; i < copyArray.length; i++) {
             int rand = (int) (Math.random() * 10);
             copyArray[i] = rand;
-
         }
 
         //remove repeat elements
